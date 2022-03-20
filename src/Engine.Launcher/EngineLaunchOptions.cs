@@ -1,5 +1,5 @@
-﻿using System;
-using System.CommandLine;
+﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
+using System;
 
 namespace Engine
 {
@@ -13,25 +13,25 @@ namespace Engine
 
         public EngineLaunchOptions(string[] args)
         {
-            ArgumentSyntax.Parse(args, syntax =>
-            {
-                syntax.ApplicationName = "Editor";
-                syntax.DefineOption("opengl", ref _preferOpenGL, "Prefer using the OpenGL rendering backend.");
-                syntax.DefineOption(
-                    "audio",
-                    ref _audioPreference,
-                    s =>
-                    {
-                        AudioEnginePreference pref;
-                        if (!Enum.TryParse(s, true, out pref))
-                        {
-                            pref = AudioEnginePreference.Default;
-                        }
-
-                        return pref;
-                    },
-                    "Prefer using the OpenGL rendering backend.");
-            });
+            //ArgumentSyntax.Parse(args, syntax =>
+            //{
+            //    syntax.ApplicationName = "Editor";
+            //    syntax.DefineOption("opengl", ref _preferOpenGL, "Prefer using the OpenGL rendering backend.");
+            //    syntax.DefineOption(
+            //        "audio",
+            //        ref _audioPreference,
+            //        s =>
+            //        {
+            //            AudioEnginePreference pref;
+            //            if (!Enum.TryParse(s, true, out pref))
+            //            {
+            //                pref = AudioEnginePreference.Default;
+            //            }
+            //
+            //            return pref;
+            //        },
+            //        "Prefer using the OpenGL rendering backend.");
+            //});
         }
 
         public enum AudioEnginePreference

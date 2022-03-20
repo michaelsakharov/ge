@@ -112,7 +112,6 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.Win32.Registry" Version="4.3.0" />
     <PackageReference Include="SharpDX.XAudio2" Version="4.2.0" />
-    <PackageReference Include="System.CommandLine" Version="0.1.0-e160908-1" />
   </ItemGroup>
   <Import Project="$(MSBuildThisFileDirectory)Editor.targets" />
 </Project>
