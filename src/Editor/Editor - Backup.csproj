@@ -15,6 +15,7 @@
     <RootNamespace>Engine</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+	<EnableDefaultCompileItems>false</EnableDefaultCompileItems>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Windows_Debug|x64' " />
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Windows_Release|x64' " />
@@ -80,7 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="SharpDX.XAudio2" Version="4.2.0" />
-    <PackageReference Include="SharpDX.XAudio2" Version="4.2.0" />
+    <PackageReference Include="SharpDX.XAudio2" Version="3.0.2" />
     <PackageReference Include="Microsoft.Experimental.Collections" Version="1.0.6-e190117-3" />
     <PackageReference Include="System.CommandLine" Version="2.0.0-beta1.21308.1" />
   </ItemGroup>

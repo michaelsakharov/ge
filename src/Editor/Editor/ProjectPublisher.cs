@@ -43,6 +43,7 @@ namespace Engine.Editor
             string sourcePath = Path.Combine(_publishItemsRoot, target);
             EditorUtility.SafeCopyDirectory(sourcePath, outputDir);
             string assetPath = Path.Combine(projectContext.ProjectRootPath, projectContext.ProjectManifest.AssetRoot);
+            Directory.CreateDirectory(Path.Combine(outputDir, projectContext.ProjectManifest.AssetRoot));
             EditorUtility.SafeCopyDirectory(assetPath, assetPath.Replace(projectContext.ProjectRootPath, outputDir));
 
             string manifestFile = Directory.GetFiles(projectContext.ProjectRootPath, "*.manifest").SingleOrDefault();

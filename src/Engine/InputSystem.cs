@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
+using Point = System.Drawing.Point;
 using System.Numerics;
 using Veldrid.Platform;
 using System.Runtime.InteropServices;
