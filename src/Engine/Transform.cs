@@ -377,6 +377,34 @@ namespace Engine
             return mat;
         }
 
+        /// <summary>
+        /// Untested
+        /// </summary>
+        /// <returns>Local Space Matrix</returns>
+        public Matrix4x4 GetLocalMatrix()
+        {
+            Matrix4x4.Invert(GetWorldMatrix(), out Matrix4x4 mat);
+            return mat;
+        }
+
+        /// <summary>
+        /// Untested
+        /// </summary>
+        /// <returns>World Space Coordinates</returns>
+        public Vector3 TransformLocalToWorld(Vector3 localPosition)
+        {
+            return Vector3.Transform(localPosition, GetWorldMatrix());
+        }
+
+        /// <summary>
+        /// Untested
+        /// </summary>
+        /// <returns>Local Space Coordinates</returns>
+        public Vector3 TransformWorldToLocal(Vector3 worldPosition)
+        {
+            return Vector3.Transform(worldPosition, GetLocalMatrix());
+        }
+
         public Vector3 Forward
         {
             get
