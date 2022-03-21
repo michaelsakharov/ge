@@ -18,16 +18,10 @@ namespace Engine
 {
     public static class Program
     {
-        public enum AudioEnginePreference
+        public static int Main(string[] args)
         {
-            Default,
-            OpenAL,
-            None
-        }
+            EngineLaunchOptions launchOptions = new EngineLaunchOptions(args);
 
-        public static int Main(bool opengl = false, AudioEnginePreference? audio = null)
-        {
-			
             ProjectManifest projectManifest;
             string currentDir = AppContext.BaseDirectory;
             string manifestName = null;
@@ -70,7 +64,7 @@ namespace Engine
 
             GraphicsPreferencesProvider graphicsProvider;
             string graphicsProviderName = projectManifest.GraphicsPreferencesProviderTypeName;
-            if (graphicsProviderName != null && string.IsNullOrEmpty(graphicsProviderName) == false)
+            if (graphicsProviderName != null)
             {
                 graphicsProvider = GetProvider(als, graphicsProviderName);
             }
@@ -108,10 +102,10 @@ namespace Engine
             game.SystemRegistry.Register(sls);
             sls.AfterSceneLoaded += () => game.ResetDeltaTime();
 
-            var audioPreference = audio;
+            EngineLaunchOptions.AudioEnginePreference? audioPreference = launchOptions.AudioPreference;
             AudioEngineOptions audioEngineOptions =
                 !audioPreference.HasValue ? AudioEngineOptions.Default
-                : audioPreference == AudioEnginePreference.None ? AudioEngineOptions.UseNullAudio
+                : audioPreference == EngineLaunchOptions.AudioEnginePreference.None ? AudioEngineOptions.UseNullAudio
                 : AudioEngineOptions.UseOpenAL;
             AudioSystem audioSystem = new AudioSystem(audioEngineOptions);
             game.SystemRegistry.Register(audioSystem);
